@@ -12966,6 +12966,10 @@ var __async = (__this, __arguments, generator) => {
       isStopPropagation: {
         type: Boolean,
         default: true
+      },
+      paginationUnselectedColor: {
+        type: String,
+        default: "#ddd"
       }
     },
     emits: ["change"],
@@ -13328,7 +13332,7 @@ var __async = (__this, __arguments, generator) => {
           return vue.openBlock(), vue.createElementBlock("i", {
             key: index,
             style: vue.normalizeStyle({
-              backgroundColor: _ctx.activePagination === index ? _ctx.paginationColor : "#ddd"
+              backgroundColor: _ctx.activePagination === index ? _ctx.paginationColor : _ctx.paginationUnselectedColor
             }),
             class: vue.normalizeClass({ active: _ctx.activePagination === index })
           }, null, 6);
@@ -16032,8 +16036,7 @@ var __async = (__this, __arguments, generator) => {
         ref: "symbolContain",
         class: "nut-ellipsis__copy",
         style: { "display": "inline" }
-      }, vue.toDisplayString(_ctx.symbolText), 9, _hoisted_6$8),
-      vue.createTextVNode()
+      }, vue.toDisplayString(_ctx.symbolText), 9, _hoisted_6$8)
     ]);
   }
   const Ellipsis = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r]]);

@@ -3221,10 +3221,7 @@ const Qu = /* @__PURE__ */ K(Uu, [["render", Ju]]), { create: xu } = W("elevator
       scrollY: 0,
       diff: -1,
       fixedTop: 0
-    }), a = N(() => s.value.clientHeight), l = (c, $) => {
-      const h = "data-";
-      return c.getAttribute(h + $);
-    }, i = (c) => {
+    }), a = N(() => s.value.clientHeight), l = (c, $) => c.getAttribute("data-" + $), i = (c) => {
       Te(() => {
         !o.listGroup.includes(c) && c != null && o.listGroup.push(c);
       });
@@ -11449,6 +11446,10 @@ const Dg = /* @__PURE__ */ K(gg, [["render", Ng]]), Co = Symbol("nut-swiper"), {
     isStopPropagation: {
       type: Boolean,
       default: !0
+    },
+    paginationUnselectedColor: {
+      type: String,
+      default: "#ddd"
     }
   },
   emits: ["change"],
@@ -11655,7 +11656,7 @@ function Bg(e, t, n, s, o, a) {
       (u(!0), d(ee, null, re(e.state.children.length, (l, i) => (u(), d("i", {
         key: i,
         style: L({
-          backgroundColor: e.activePagination === i ? e.paginationColor : "#ddd"
+          backgroundColor: e.activePagination === i ? e.paginationColor : e.paginationUnselectedColor
         }),
         class: B({ active: e.activePagination === i })
       }, null, 6))), 128))
