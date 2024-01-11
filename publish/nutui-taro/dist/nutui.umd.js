@@ -6274,6 +6274,14 @@ var __async = (__this, __arguments, generator) => {
     },
     emits: ["choose", "close", "update:visible", "select"],
     setup(props, { emit, slots, expose }) {
+      const visible = vue.computed({
+        get() {
+          return props.visible;
+        },
+        set(val) {
+          emit("update:visible", val);
+        }
+      });
       const showTopBtn = vue.computed(() => {
         return slots.btn;
       });
@@ -6319,8 +6327,22 @@ var __async = (__this, __arguments, generator) => {
       const select = (param) => {
         emit("select", param);
       };
+      const opened = () => {
+        var _a, _b, _c, _d;
+        if (props.defaultValue) {
+          if (Array.isArray(props.defaultValue)) {
+            if ((_a = props.defaultValue) == null ? void 0 : _a.length) {
+              (_c = calendarRef.value) == null ? void 0 : _c.scrollToDate((_b = props.defaultValue) == null ? void 0 : _b[0]);
+            }
+          } else {
+            (_d = calendarRef.value) == null ? void 0 : _d.scrollToDate(props.defaultValue);
+          }
+        }
+      };
       return {
+        visible,
         closePopup,
+        opened,
         update,
         close,
         select,
@@ -6340,6 +6362,7 @@ var __async = (__this, __arguments, generator) => {
     return _ctx.poppable ? (vue.openBlock(), vue.createBlock(_component_nut_popup, vue.mergeProps({
       key: 0,
       visible: _ctx.visible,
+      "onUpdate:visible": _cache[0] || (_cache[0] = ($event) => _ctx.visible = $event),
       position: "bottom",
       round: "",
       closeable: ""
@@ -6347,8 +6370,8 @@ var __async = (__this, __arguments, generator) => {
       style: { height: "85vh" },
       "lock-scroll": _ctx.lockScroll,
       "catch-move": _ctx.lockScroll,
-      onClickOverlay: _ctx.closePopup,
-      onClickCloseIcon: _ctx.closePopup
+      "destroy-on-close": false,
+      onOpened: _ctx.opened
     }), {
       default: vue.withCtx(() => [
         vue.createVNode(_component_nut_calendar_item, {
@@ -6420,7 +6443,7 @@ var __async = (__this, __arguments, generator) => {
         ]), 1032, ["type", "is-auto-back-fill", "poppable", "title", "default-value", "start-date", "end-date", "confirm-text", "start-text", "end-text", "show-today", "show-title", "show-sub-title", "to-date-animation", "first-day-of-week", "disabled-date", "onUpdate", "onClose", "onChoose", "onSelect"])
       ]),
       _: 3
-    }, 16, ["visible", "lock-scroll", "catch-move", "onClickOverlay", "onClickCloseIcon"])) : (vue.openBlock(), vue.createBlock(_component_nut_calendar_item, {
+    }, 16, ["visible", "lock-scroll", "catch-move", "onOpened"])) : (vue.openBlock(), vue.createBlock(_component_nut_calendar_item, {
       key: 1,
       ref: "calendarRef",
       type: _ctx.type,
@@ -7499,7 +7522,7 @@ var __async = (__this, __arguments, generator) => {
           hour = 23;
           minute = 59;
         }
-        const seconds = minute;
+        let seconds = minute;
         if (value.getFullYear() === year) {
           month = boundary.getMonth() + 1;
           if (value.getMonth() + 1 === month) {
@@ -7508,6 +7531,9 @@ var __async = (__this, __arguments, generator) => {
               hour = boundary.getHours();
               if (value.getHours() === hour) {
                 minute = boundary.getMinutes();
+                if (value.getMinutes() === minute) {
+                  seconds = boundary.getSeconds();
+                }
               }
             }
           }
@@ -7563,30 +7589,34 @@ var __async = (__this, __arguments, generator) => {
         selectedValue,
         selectedOptions
       }) => {
-        if (["date", "datetime", "datehour", "month-day", "year-month"].includes(props.type)) {
-          let formatDate = [];
-          selectedValue.forEach((item) => {
-            formatDate.push(item);
-          });
-          if (props.type == "month-day" && formatDate.length < 3) {
-            formatDate.unshift(new Date(state.currentDate || props.minDate || props.maxDate).getFullYear());
-          }
-          if (props.type == "year-month" && formatDate.length < 3) {
-            formatDate.push(new Date(state.currentDate || props.minDate || props.maxDate).getDate());
-          }
-          const year = Number(formatDate[0]);
-          const month = Number(formatDate[1]) - 1;
-          const day = Math.min(Number(formatDate[2]), getMonthEndDay(Number(formatDate[0]), Number(formatDate[1])));
-          let date = null;
-          if (props.type === "date" || props.type === "month-day" || props.type === "year-month") {
-            date = new Date(year, month, day);
-          } else if (props.type === "datetime") {
-            date = new Date(year, month, day, Number(formatDate[3]), Number(formatDate[4]));
-          } else if (props.type === "datehour") {
-            date = new Date(year, month, day, Number(formatDate[3]));
-          }
-          state.currentDate = formatValue(date);
+        let formatDate = [];
+        selectedValue.forEach((item) => {
+          formatDate.push(item);
+        });
+        if (props.type == "month-day" && formatDate.length < 3) {
+          formatDate.unshift(new Date(state.currentDate || props.minDate || props.maxDate).getFullYear());
         }
+        if (props.type == "year-month" && formatDate.length < 3) {
+          formatDate.push(new Date(state.currentDate || props.minDate || props.maxDate).getDate());
+        }
+        const year = Number(formatDate[0]);
+        const month = Number(formatDate[1]) - 1;
+        const day = Math.min(Number(formatDate[2]), getMonthEndDay(Number(formatDate[0]), Number(formatDate[1])));
+        let date = null;
+        if (props.type === "date" || props.type === "month-day" || props.type === "year-month") {
+          date = new Date(year, month, day);
+        } else if (props.type === "datetime") {
+          date = new Date(year, month, day, Number(formatDate[3]), Number(formatDate[4]));
+        } else if (props.type === "datehour") {
+          date = new Date(year, month, day, Number(formatDate[3]));
+        } else if (props.type === "hour-minute" || props.type === "time") {
+          date = new Date(state.currentDate);
+          const year2 = date.getFullYear();
+          const month2 = date.getMonth();
+          const day2 = date.getDate();
+          date = new Date(year2, month2, day2, Number(formatDate[0]), Number(formatDate[1]), Number(formatDate[2] || 0));
+        }
+        state.currentDate = formatValue(date);
         emit("change", { columnIndex, selectedValue, selectedOptions });
       };
       const formatterOption = (type, value) => {
@@ -7611,7 +7641,7 @@ var __async = (__this, __arguments, generator) => {
           } else {
             min++;
           }
-          if (min <= +val) {
+          if (min <= Number(val)) {
             index++;
           }
         }
@@ -7697,6 +7727,9 @@ var __async = (__this, __arguments, generator) => {
           const isSameValue = JSON.stringify(newValues) === JSON.stringify(props.modelValue);
           if (!isSameValue) {
             emit("update:modelValue", newValues);
+            Taro.nextTick(() => {
+              state.selectedValue = getSelectedValue(newValues);
+            });
           }
         }
       );
@@ -20399,7 +20432,7 @@ var __async = (__this, __arguments, generator) => {
       }
     });
   }
-  const version = "4.2.6";
+  const version = "4.2.7";
   const nutui_taro_vue_build = { install, version, Locale };
   exports2.ActionSheet = ActionSheet;
   exports2.Address = Address;
