@@ -18,11 +18,10 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { reactive, computed, onBeforeMount, watch, toRefs, openBlock, createElementBlock, renderSlot } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { p as padZero } from "../util-4Jkyw4BJ.js";
-import { u as useLocale } from "../index-s3RgMhc7.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import "@nutui/nutui/dist/packages/locale/lang";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { p as padZero } from "../util-6wYEjmEl.js";
+import { u as useLocale } from "../index-BRldzYir.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const getTimeStamp = (timeStr) => {
   if (!timeStr)
     return Date.now();
@@ -107,7 +106,7 @@ const _sfc_main = create({
       return formatRemainTime(state.restTime);
     });
     const initTime = () => {
-      state.handleEndTime = props.endTime;
+      state.handleEndTime = Number(props.endTime);
       state.diffTime = Date.now() - getTimeStamp(props.startTime);
       if (!state.counting)
         state.counting = true;
@@ -208,14 +207,14 @@ const _sfc_main = create({
     const reset = () => {
       if (!props.autoStart) {
         pause();
-        state.restTime = props.time;
+        state.restTime = Number(props.time);
       }
     };
     onBeforeMount(() => {
       if (props.autoStart) {
         initTime();
       } else {
-        state.restTime = props.time;
+        state.restTime = Number(props.time);
       }
     });
     watch(

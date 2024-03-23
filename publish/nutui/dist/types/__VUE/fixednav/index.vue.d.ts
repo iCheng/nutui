@@ -1,7 +1,7 @@
 import { PropType } from 'vue';
 
 declare type Install<T> = T & {
-  install(app: import('vue').App): void;
+    install(app: import('vue').App): void;
 };
 declare const _default: Install< import("vue").DefineComponent<{
     visible: {
@@ -41,9 +41,9 @@ declare const _default: Install< import("vue").DefineComponent<{
     };
 }, {
     classes: import("vue").ComputedRef<{
-        [x: number]: boolean;
+        [x: string]: boolean;
         "nut-fixed-nav": boolean;
-        active: any;
+        active: boolean;
     }>;
     updateValue: (value?: boolean) => void;
     selected: (item: any, event: Event) => void;
@@ -89,19 +89,19 @@ declare const _default: Install< import("vue").DefineComponent<{
     "onUpdate:visible"?: ((...args: any[]) => any) | undefined;
     onSelected?: ((...args: any[]) => any) | undefined;
 }, {
+    type: string;
     overlay: boolean;
     visible: boolean;
-    type: string;
     position: Record<string, any>;
-    activeColor: string;
     navList: any[];
+    activeColor: string;
     activeText: string;
     unActiveText: string;
 }, {}>>;
 export default _default;
 
 declare module 'vue' {
-  interface GlobalComponents {
-      NutFixedNav: typeof _default;
-  }
+    interface GlobalComponents {
+        NutFixedNav: typeof _default;
+    }
 }

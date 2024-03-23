@@ -1,9 +1,9 @@
 import { computed, resolveComponent, openBlock, createElementBlock, normalizeClass, normalizeStyle, renderSlot, createCommentVNode, Fragment, createElementVNode, toDisplayString, createTextVNode, createBlock } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { u as useRouter } from "../index-Ii9XdkPy.js";
-import { p as pxCheck } from "../pxCheck-OnXlN1NC.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { u as useRouter } from "../index-aiGQ-EiA.js";
+import { p as pxCheck } from "../pxCheck-DN6FYV6q.js";
 import { Right } from "@nutui/icons-vue";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { componentName, create } = createComponent("cell");
 const _sfc_main = create({
   components: { Right },
@@ -11,15 +11,20 @@ const _sfc_main = create({
     title: { type: String, default: "" },
     subTitle: { type: String, default: "" },
     desc: { type: String, default: "" },
-    descTextAlign: { type: String, default: "right" },
+    descTextAlign: {
+      type: String,
+      default: "right"
+    },
     isLink: { type: Boolean, default: false },
     to: [String, Object],
     replace: { type: Boolean, default: false },
     roundRadius: { type: [String, Number], default: "" },
     url: { type: String, default: "" },
     center: { type: Boolean, default: false },
-    size: { type: String, default: "" }
-    // large
+    size: {
+      type: String,
+      default: "normal"
+    }
   },
   emits: ["click"],
   setup(props, { emit }) {
@@ -29,7 +34,7 @@ const _sfc_main = create({
         [prefixCls]: true,
         [`${prefixCls}--clickable`]: props.isLink || props.to,
         [`${prefixCls}--center`]: props.center,
-        [`${prefixCls}--large`]: props.size == "large"
+        [`${prefixCls}--large`]: props.size === "large"
       };
     });
     const router = useRouter();

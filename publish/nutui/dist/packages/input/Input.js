@@ -14,19 +14,20 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-import { ref, reactive, computed, watch, onMounted, h, resolveComponent, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, createCommentVNode, createBlock, resolveDynamicComponent, normalizeStyle, toDisplayString, createTextVNode, withDirectives, createVNode, mergeProps, vShow } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
+import { toRef, ref, reactive, computed, watch, onMounted, h, resolveComponent, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, createCommentVNode, createBlock, resolveDynamicComponent, normalizeStyle, toDisplayString, createTextVNode, withDirectives, createVNode, mergeProps, vShow } from "vue";
 import { MaskClose } from "@nutui/icons-vue";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { u as useFormDisabled } from "../common-BSbjjJAx.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 function trimExtraChar(value, char, regExp) {
-  const index2 = value.indexOf(char);
-  if (index2 === -1) {
+  const index = value.indexOf(char);
+  if (index === -1) {
     return value;
   }
-  if (char === "-" && index2 !== 0) {
-    return value.slice(0, index2);
+  if (char === "-" && index !== 0) {
+    return value.slice(0, index);
   }
-  return value.slice(0, index2 + 1) + value.slice(index2).replace(regExp, "");
+  return value.slice(0, index + 1) + value.slice(index).replace(regExp, "");
 }
 function formatNumber(value, allowDot = true, allowMinus = true) {
   if (allowDot) {
@@ -141,6 +142,7 @@ const _sfc_main = create({
   emits: ["update:modelValue", "blur", "focus", "clear", "keypress", "click", "clickInput", "confirm"],
   expose: ["focus", "blur", "select"],
   setup(props, { emit }) {
+    const disabled = useFormDisabled(toRef(props, "disabled"));
     const active = ref(false);
     const inputRef = ref();
     const getModelValue = () => {
@@ -159,7 +161,7 @@ const _sfc_main = create({
       const prefixCls = componentName;
       return {
         [prefixCls]: true,
-        [`${prefixCls}--disabled`]: props.disabled,
+        [`${prefixCls}--disabled`]: disabled.value,
         [`${prefixCls}--required`]: props.required,
         [`${prefixCls}--error`]: props.error,
         [`${prefixCls}--border`]: props.border,
@@ -198,14 +200,14 @@ const _sfc_main = create({
       }
     };
     const onFocus = (event) => {
-      if (props.disabled || props.readonly) {
+      if (disabled.value || props.readonly) {
         return;
       }
       active.value = true;
       emit("focus", event);
     };
     const onBlur = (event) => {
-      if (props.disabled || props.readonly) {
+      if (disabled.value || props.readonly) {
         return;
       }
       setTimeout(() => {
@@ -221,7 +223,7 @@ const _sfc_main = create({
     };
     const clear = (event) => {
       event.stopPropagation();
-      if (props.disabled)
+      if (disabled.value)
         return;
       emit("update:modelValue", "", event);
       emit("clear", "", event);
@@ -233,7 +235,7 @@ const _sfc_main = create({
       }
     };
     const onClickInput = (event) => {
-      if (props.disabled) {
+      if (disabled.value) {
         return;
       }
       emit("clickInput", event);
@@ -283,6 +285,7 @@ const _sfc_main = create({
       active,
       classes,
       styles,
+      disabled,
       onInput,
       onFocus,
       onBlur,
@@ -372,7 +375,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ], 2);
 }
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+const NutInput = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
 export {
-  index as default
+  NutInput as default
 };

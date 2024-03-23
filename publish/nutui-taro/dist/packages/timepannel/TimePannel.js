@@ -18,8 +18,8 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { inject, reactive, computed, toRefs, openBlock, createElementBlock, normalizeClass, toDisplayString } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { componentName, create } = createComponent("time-pannel");
 const _sfc_main = create({
   name: "timepannel",
@@ -34,7 +34,7 @@ const _sfc_main = create({
     }
   },
   emits: ["change"],
-  setup: (props, context) => {
+  setup: (props, { emit }) => {
     const currentKey = inject("currentKey");
     const state = reactive({
       currentKey
@@ -47,7 +47,7 @@ const _sfc_main = create({
       };
     });
     const handlePannel = (pannelKey) => {
-      context.emit("change", pannelKey);
+      emit("change", pannelKey);
     };
     return __spreadProps(__spreadValues({}, toRefs(state)), {
       classes,

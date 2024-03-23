@@ -1,11 +1,9 @@
 import { computed, ref, resolveComponent, openBlock, createElementBlock, normalizeClass, normalizeStyle, createBlock, createCommentVNode, createTextVNode, renderSlot, createElementVNode, Fragment, renderList, toDisplayString, createVNode } from "vue";
 import { Left } from "@nutui/icons-vue-taro";
 import NutOverlay from "../overlay/Overlay.js";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { u as useLocale } from "../index-DDx91B18.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import "@nutui/nutui-taro/dist/packages/locale/lang";
-import "../util-WZB3Ltgx.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { u as useLocale } from "../index-CV7DiiiD.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("fixed-nav");
 const cN = "NutFixedNav";
 const _sfc_main = create({

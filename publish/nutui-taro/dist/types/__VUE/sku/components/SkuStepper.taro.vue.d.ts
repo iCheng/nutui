@@ -16,13 +16,13 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {
-    goodsCount: import("vue").Ref<any>;
+    goodsCount: import("vue").Ref<string | number>;
     add: (value: number) => void;
     reduce: (value: number) => void;
     overlimit: (e: Event, action: string) => void;
     getExtraText: () => any;
     changeStepper: (value: number) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("reduce" | "add" | "click" | "changeSku" | "changeStepper" | "clickBtnOptions" | "overLimit")[], "reduce" | "add" | "click" | "changeSku" | "changeStepper" | "clickBtnOptions" | "overLimit", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("reduce" | "click" | "add" | "changeSku" | "changeStepper" | "clickBtnOptions" | "overLimit")[], "reduce" | "click" | "add" | "changeSku" | "changeStepper" | "clickBtnOptions" | "overLimit", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     stepperMax: {
         type: (NumberConstructor | StringConstructor)[];
         default: number;
@@ -41,8 +41,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     onClick?: ((...args: any[]) => any) | undefined;
-    onAdd?: ((...args: any[]) => any) | undefined;
     onReduce?: ((...args: any[]) => any) | undefined;
+    onAdd?: ((...args: any[]) => any) | undefined;
     onChangeSku?: ((...args: any[]) => any) | undefined;
     onChangeStepper?: ((...args: any[]) => any) | undefined;
     onClickBtnOptions?: ((...args: any[]) => any) | undefined;

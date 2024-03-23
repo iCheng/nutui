@@ -1,8 +1,9 @@
-import { inject, reactive, computed, watch, onMounted, getCurrentInstance, onBeforeUnmount, h } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
+import { toRef, inject, reactive, computed, watch, onMounted, getCurrentInstance, onBeforeUnmount, h } from "vue";
+import { c as createComponent } from "../component-DQf3CENX.js";
 import { CheckNormal, Checked, CheckDisabled } from "@nutui/icons-vue";
-import { p as pxCheck } from "../pxCheck-OnXlN1NC.js";
-import { C as CHECKBOX_KEY } from "../types-zeKkNDAq.js";
+import { p as pxCheck } from "../pxCheck-DN6FYV6q.js";
+import { C as CHECKBOX_KEY } from "../types-48N1bMrT.js";
+import { u as useFormDisabled } from "../common-BSbjjJAx.js";
 const { create, componentName } = createComponent("checkbox");
 const _sfc_main = create({
   props: {
@@ -38,6 +39,7 @@ const _sfc_main = create({
   },
   emits: ["change", "update:modelValue"],
   setup(props, { emit, slots }) {
+    const disabled = useFormDisabled(toRef(props, "disabled"));
     const parent = inject(CHECKBOX_KEY, null);
     const state = reactive({
       partialSelect: props.indeterminate
@@ -51,7 +53,7 @@ const _sfc_main = create({
       }
     });
     const pDisabled = computed(() => {
-      return hasParent.value ? parent.disabled.value ? parent.disabled.value : props.disabled : props.disabled;
+      return hasParent.value ? parent.disabled.value ? parent.disabled.value : disabled.value : disabled.value;
     });
     const checked = computed(() => !!props.modelValue);
     const color = computed(() => {

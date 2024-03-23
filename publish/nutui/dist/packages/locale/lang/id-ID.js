@@ -4,7 +4,7 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-import { B as BaseLang } from "./baseLang-7uiEiO-2.js";
+import { B as BaseLang } from "./baseLang-Bnfy6fTl.js";
 class Lang extends BaseLang {
   constructor() {
     super(...arguments);
@@ -28,6 +28,14 @@ class Lang extends BaseLang {
       next: "Selanjutnya"
     });
     __publicField(this, "calendaritem", {
+      weekdays: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+      end: "Selesai",
+      start: "Mulai",
+      title: "Kalender",
+      monthTitle: (year, month) => `${year}/${month}`,
+      today: "Hari ini"
+    });
+    __publicField(this, "calendarcard", {
       weekdays: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
       end: "Selesai",
       start: "Mulai",

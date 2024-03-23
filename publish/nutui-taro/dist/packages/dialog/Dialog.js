@@ -18,23 +18,19 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { ref, onMounted, watch, computed, resolveComponent, openBlock, createBlock, normalizeStyle, withCtx, createElementVNode, normalizeClass, createElementBlock, renderSlot, Fragment, createTextVNode, toDisplayString, createCommentVNode, resolveDynamicComponent } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { d as isPromise } from "../util-WZB3Ltgx.js";
-import { N as NutPopup, p as popupProps } from "../index.taro-vH2b6ZpB.js";
-import NutButton from "../button/Button.js";
-import { u as useLocale } from "../index-DDx91B18.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import "@nutui/icons-vue-taro";
-import "../overlay/Overlay.js";
-import "@tarojs/taro";
-import "@nutui/nutui-taro/dist/packages/locale/lang";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { d as isPromise } from "../util-CyCQsn5J.js";
+import { N as NutPopup, p as popupProps } from "../index.taro-D-ijfYRm.js";
+import { Button as _sfc_main$1 } from "../button/Button.js";
+import { u as useLocale } from "../index-CV7DiiiD.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("dialog");
 const cN = "NutDialog";
 const _sfc_main = create({
   inheritAttrs: false,
   components: {
     NutPopup,
-    NutButton
+    NutButton: _sfc_main$1
   },
   props: __spreadProps(__spreadValues({}, popupProps), {
     closeOnClickOverlay: {

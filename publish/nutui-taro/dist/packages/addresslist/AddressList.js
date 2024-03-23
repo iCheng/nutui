@@ -1,16 +1,11 @@
 import { resolveComponent, openBlock, createElementBlock, createElementVNode, renderSlot, toDisplayString, createTextVNode, createCommentVNode, createVNode, ref, h, createBlock, resolveDynamicComponent, withCtx, reactive, watch, onMounted, Fragment, renderList, createSlots } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { f as floatData } from "../util-WZB3Ltgx.js";
-import { u as useLocale } from "../index-DDx91B18.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { f as floatData } from "../util-CyCQsn5J.js";
+import { u as useLocale } from "../index-CV7DiiiD.js";
 import { Del, Edit } from "@nutui/icons-vue-taro";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import NutButton from "../button/Button.js";
-import NutSwipe from "../swipe/Swipe.js";
-import "@nutui/nutui-taro/dist/packages/locale/lang";
-import "@tarojs/taro";
-import "../index-084nl_oE.js";
-import "../index-Isui2_f6.js";
-import "../types-qOrhXtA_.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
+import { Button as _sfc_main$3 } from "../button/Button.js";
+import { Swipe as _sfc_main$4 } from "../swipe/Swipe.js";
 const { create: create$2 } = createComponent("address-list-item");
 const cN$1 = "NutAddressList";
 const _sfc_main$2 = create$2({
@@ -116,8 +111,8 @@ const _sfc_main$1 = create$1({
   emits: ["delIcon", "editIcon", "clickItem", "longDown", "longCopy", "longSet", "longDel", "swipeDel"],
   components: {
     ItemContents,
-    NutButton,
-    NutSwipe
+    NutButton: _sfc_main$3,
+    NutSwipe: _sfc_main$4
   },
   setup(props, { emit }) {
     const renderCompontent = () => {
@@ -340,7 +335,7 @@ const _sfc_main = create({
   },
   components: {
     GeneralShell,
-    NutButton
+    NutButton: _sfc_main$3
   },
   emits: ["delIcon", "editIcon", "clickItem", "longCopy", "longSet", "longDel", "swipeDel", "add"],
   setup(props, { emit }) {

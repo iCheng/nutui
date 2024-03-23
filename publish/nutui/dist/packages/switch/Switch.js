@@ -1,7 +1,8 @@
 import { computed, watch, resolveComponent, openBlock, createElementBlock, normalizeClass, normalizeStyle, createElementVNode, renderSlot, createVNode, createCommentVNode, Fragment, withDirectives, toDisplayString, vShow } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
 import { Loading1 } from "@nutui/icons-vue";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { u as useFormDisabled } from "../common-BSbjjJAx.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { componentName, create } = createComponent("switch");
 const _sfc_main = create({
   components: { Loading1 },
@@ -10,6 +11,13 @@ const _sfc_main = create({
       type: [String, Number, Boolean],
       default: false
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * @deprecated Please use `disabled` prop instead.
+     */
     disable: {
       type: Boolean,
       default: false
@@ -45,13 +53,15 @@ const _sfc_main = create({
   },
   emits: ["change", "update:modelValue", "update:loading"],
   setup(props, { emit }) {
+    const legacyDisabled = computed(() => props.disabled || props.disable);
+    const disabled = useFormDisabled(legacyDisabled);
     const isActive = computed(() => props.modelValue === props.activeValue);
     const classes = computed(() => {
       const prefixCls = componentName;
       return {
         [prefixCls]: true,
         [isActive.value ? "nut-switch-open" : "nut-switch-close"]: true,
-        [`${prefixCls}-disable`]: props.disable,
+        [`${prefixCls}-disabled`]: disabled.value,
         [`${prefixCls}-base`]: true
       };
     });
@@ -62,7 +72,7 @@ const _sfc_main = create({
     });
     let updateType = "";
     const onClick = (event) => {
-      if (props.disable || props.loading)
+      if (props.loading || disabled.value)
         return;
       const value = isActive.value ? props.inactiveValue : props.activeValue;
       updateType = "click";

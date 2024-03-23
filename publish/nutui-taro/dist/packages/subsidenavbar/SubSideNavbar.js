@@ -18,18 +18,14 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { reactive, computed, onMounted, toRefs, resolveComponent, openBlock, createElementBlock, createElementVNode, withModifiers, toDisplayString, createTextVNode, createBlock, withDirectives, normalizeClass, normalizeStyle, renderSlot, vShow } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
 import { ArrowDown2, ArrowUp2 } from "@nutui/icons-vue-taro";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("sub-side-navbar");
 const _sfc_main = create({
   props: {
     title: {
       type: String,
-      default: ""
-    },
-    ikey: {
-      type: [String, Number],
       default: ""
     },
     open: {
@@ -61,16 +57,13 @@ const _sfc_main = create({
     });
   }
 });
-const _hoisted_1 = ["ikey"];
+const _hoisted_1 = { class: "nut-sub-side-navbar" };
 const _hoisted_2 = { class: "nut-sub-side-navbar__title__text" };
 const _hoisted_3 = { class: "nut-sub-side-navbar__title__icon" };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown2 = resolveComponent("ArrowDown2");
   const _component_ArrowUp2 = resolveComponent("ArrowUp2");
-  return openBlock(), createElementBlock("view", {
-    class: "nut-sub-side-navbar",
-    ikey: _ctx.ikey
-  }, [
+  return openBlock(), createElementBlock("view", _hoisted_1, [
     createElementVNode("view", {
       class: "nut-sub-side-navbar__title",
       onClick: _cache[0] || (_cache[0] = withModifiers((...args) => _ctx.handleClick && _ctx.handleClick(...args), ["stop"]))
@@ -80,10 +73,10 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("span", _hoisted_3, [
         !_ctx.direction ? (openBlock(), createBlock(_component_ArrowDown2, {
           key: 0,
-          size: "12px"
+          size: "10"
         })) : (openBlock(), createBlock(_component_ArrowUp2, {
           key: 1,
-          size: "12px"
+          size: "10"
         }))
       ])
     ]),
@@ -96,7 +89,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 6), [
       [vShow, !_ctx.direction]
     ])
-  ], 8, _hoisted_1);
+  ]);
 }
 const index_taro = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
 export {

@@ -1,3 +1,115 @@
+## v4.3.3
+
+`2024-03-20`
+
+Bug Fixes
+
+- uploader: add stop on delete event (#2971) @subordon
+- calendar-card: 选择范围时支持仅选择单个日期 (#2963) @eiinu
+- navbar: remove unused css var @eiinu
+
+Refactors
+
+- move to script setup
+  - backtop, tag @subordon
+  - input-number, rate, progress, circle-progress, swipe, navbar, invoice @eiinu
+
+Other Changes
+
+- test: add some unit tests (#2980) @eiinu
+
+## v4.3.2
+
+`2024-03-11`
+
+Features
+
+- switch: add disabled prop (#2959) @eiinu
+
+Bug Fixes
+
+- popup: 修复 update:visible 事件关闭时重复调用 (#2936) @yang1206
+- form: 修复 disabled 关联子组件收集问题 (#2958) @eiinu
+
+Refactors
+
+- price: move to script setup (#2952) @eiinu
+- layout: move to script setup (#2951) @eiinu
+- animate: move to script setup (#2947) @eiinu
+
+Other Changes
+
+- tabs: add animated-time demo (#2942) @eiinu
+- deps: update to taro 3.6.24 (#2939) @eiinu
+
+## v4.3.1
+
+`2024-02-29`
+
+Features
+
+- form: 新增禁用（disabled）属性 (#2690) @yi-boide
+
+Bug Fixes
+
+- picker: className option (#2926) @eiinu
+
+Refactors
+
+- form: move to script setup (#2923), close #2677 @eiinu
+- collapse: move to script setup (#2907) @eiinu
+
+Reverts
+
+- fix(textarea, taro): 修复 h5 下双向绑定失效的问题 (#2768) (#2935), close #2930
+
+## v4.3.0
+
+`2024-02-05`
+
+New Components
+
+- 新增 CalendarCard 日历卡片组件 (#2694) @eiinu
+
+Bug Fixes
+
+- avatar-cropper: 修复微信真机调试 canvas 层级错误 (#2865) @yi-boide
+- input-number: 修复输入时未触发 change 事件问题 (#2903) @yi-boide
+- input: 修复 slot 字体样式问题 (#2863) @eiinu
+- popover: 修复内部 popup 样式问题 (#2878) @eiinu
+- popover: 修复滑动后定位错乱问题 (#2913) @eiinu
+- noticebar: 移除 left-icon 空白占位元素 (#2916) @eiinu
+
+Refactors
+
+- popover: 重构代码逻辑 (#2913) @eiinu
+
+Other Changes
+
+- demo: 拆分演示代码 short-password, tabbar, cascader, backtop @yi-boide
+- test: 测试环境由 jsdom 迁移至 happy-dom (#2881) @eiinu
+
+## v4.2.9
+
+`2024-01-22`
+
+Bug Fixes
+
+- button: 修复自定义 color 时的 border 样式 (#2843) @subordon
+- form: 修复搭配 input 使用时的样式问题 (#2851) @eiinu
+- list: 优化 containerHeight 获取逻辑 (#2860) @eiinu
+
+Refactors
+
+- button: use script setup (#2713) @eiinu
+- divider: use script setup (#2840) @eiinu
+
+Other Changes
+
+- checkbox: improve type def (#2845) @eiinu
+- ellipsis: improve type def (#2848) @eiinu
+- side-navbar: remove unnecessary props (#2858) @eiinu
+
 ## v4.2.8
 
 `2024-01-15`

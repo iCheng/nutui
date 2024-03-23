@@ -18,17 +18,17 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { reactive, computed, ref, watch, toRefs, onMounted, openBlock, createElementBlock, createElementVNode, normalizeStyle, Fragment, renderList, normalizeClass, toDisplayString, createCommentVNode, resolveComponent, renderSlot, createVNode } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { d as preventDefault, e as clamp } from "../util-4Jkyw4BJ.js";
-import { p as pxCheck } from "../pxCheck-OnXlN1NC.js";
-import { u as useTouch } from "../index-084nl_oE.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import { u as useLocale } from "../index-s3RgMhc7.js";
-import "@nutui/nutui/dist/packages/locale/lang";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { d as preventDefault, e as clamp } from "../util-6wYEjmEl.js";
+import { p as pxCheck } from "../pxCheck-DN6FYV6q.js";
+import { u as useTouch } from "../index-I8tfW3Kf.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
+import { u as useLocale } from "../index-BRldzYir.js";
 const DEFAULT_FILED_NAMES = {
   text: "text",
   value: "value",
-  children: "children"
+  children: "children",
+  className: "className"
 };
 const usePicker = (props, emit) => {
   const state = reactive({
@@ -450,14 +450,19 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
         }, [
           item && item[_ctx.fieldNames.text] && _ctx.threeDimensional ? (openBlock(), createElementBlock("view", {
             key: 0,
-            class: normalizeClass(["nut-picker-roller-item", { "nut-picker-roller-item-hidden": _ctx.isHidden(index + 1) }]),
+            class: normalizeClass(["nut-picker-roller-item", {
+              "nut-picker-roller-item-hidden": _ctx.isHidden(index + 1),
+              [item[_ctx.fieldNames.className]]: item[_ctx.fieldNames.className]
+            }]),
             style: normalizeStyle(_ctx.setRollerStyle(index + 1))
           }, toDisplayString(item[_ctx.fieldNames.text]), 7)) : createCommentVNode("", true),
           item && item[_ctx.fieldNames.text] && !_ctx.threeDimensional ? (openBlock(), createElementBlock("view", {
             key: 1,
-            class: "nut-picker-roller-item-tile",
+            class: normalizeClass(["nut-picker-roller-item-tile", {
+              [item[_ctx.fieldNames.className]]: item[_ctx.fieldNames.className]
+            }]),
             style: normalizeStyle({ height: _ctx.pxCheck(_ctx.optionHeight), lineHeight: _ctx.pxCheck(_ctx.optionHeight) })
-          }, toDisplayString(item[_ctx.fieldNames.text]), 5)) : createCommentVNode("", true)
+          }, toDisplayString(item[_ctx.fieldNames.text]), 7)) : createCommentVNode("", true)
         ], 64);
       }), 128))
     ], 36),

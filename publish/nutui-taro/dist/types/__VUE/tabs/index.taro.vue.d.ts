@@ -9,7 +9,7 @@ export declare class Title {
 }
 
 declare type Install<T> = T & {
-  install(app: import('vue').App): void;
+    install(app: import('vue').App): void;
 };
 declare const _default: Install< import("vue").DefineComponent<{
     modelValue: {
@@ -87,7 +87,7 @@ declare const _default: Install< import("vue").DefineComponent<{
     tabsContentRef: Ref<HTMLElement | undefined>;
     contentStyle: import("vue").ComputedRef<CSSProperties>;
     tabsNavStyle: import("vue").ComputedRef<{
-        background: any;
+        background: string;
     }>;
     titleStyle: import("vue").ComputedRef<{
         marginTop?: undefined;
@@ -106,18 +106,18 @@ declare const _default: Install< import("vue").DefineComponent<{
         marginBottom?: undefined;
     }>;
     tabsActiveStyle: import("vue").ComputedRef<{
-        color: any;
-        background: any;
+        color: string;
+        background: string;
     }>;
     container: Ref<null>;
     scrollLeft: Ref<number>;
     scrollTop: Ref<number>;
-    getScrollX: import("vue").ComputedRef<any>;
-    getScrollY: import("vue").ComputedRef<any>;
+    getScrollX: import("vue").ComputedRef<boolean>;
+    getScrollY: import("vue").ComputedRef<boolean>;
     scrollWithAnimation: Ref<boolean>;
     canShowLabel: Ref<boolean>;
     refRandomId: string;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("change" | "click" | "update:modelValue")[], "change" | "click" | "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("click" | "change" | "update:modelValue")[], "click" | "change" | "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
         type: (NumberConstructor | StringConstructor)[];
         default: number;
@@ -179,30 +179,30 @@ declare const _default: Install< import("vue").DefineComponent<{
         default: string;
     };
 }>> & {
-    onChange?: ((...args: any[]) => any) | undefined;
     onClick?: ((...args: any[]) => any) | undefined;
+    onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
-    size: TabsSize;
-    type: TabsType;
     color: string;
+    type: TabsType;
+    size: TabsSize;
     top: number;
+    background: string;
     ellipsis: boolean;
     sticky: boolean;
-    modelValue: string | number;
-    background: string;
+    align: TabsAlign;
     direction: TabsDirection;
+    modelValue: string | number;
     titleScroll: boolean;
     swipeable: boolean;
     autoHeight: boolean;
     animatedTime: string | number;
     titleGutter: string | number;
-    align: TabsAlign;
 }, {}>>;
 export default _default;
 
 declare module 'vue' {
-  interface GlobalComponents {
-      NutTabs: typeof _default;
-  }
+    interface GlobalComponents {
+        NutTabs: typeof _default;
+    }
 }

@@ -1,10 +1,9 @@
-import { computed, ref, watch, nextTick, onMounted, openBlock, createElementBlock, normalizeClass, createElementVNode, mergeProps, createTextVNode, toDisplayString, createCommentVNode, normalizeStyle } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
+import { toRef, computed, ref, watch, nextTick, onMounted, openBlock, createElementBlock, normalizeClass, createElementVNode, mergeProps, createTextVNode, toDisplayString, createCommentVNode, normalizeStyle } from "vue";
+import { c as createComponent } from "../component-DQf3CENX.js";
 import Taro from "@tarojs/taro";
-import { u as useLocale } from "../index-DDx91B18.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import "@nutui/nutui-taro/dist/packages/locale/lang";
-import "../util-WZB3Ltgx.js";
+import { u as useLocale } from "../index-CV7DiiiD.js";
+import { u as useFormDisabled } from "../common-BSbjjJAx.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("textarea");
 const cN = "NutTextarea";
 const _sfc_main = create({
@@ -53,12 +52,13 @@ const _sfc_main = create({
   },
   emits: ["update:modelValue", "change", "blur", "focus"],
   setup(props, { emit }) {
+    const disabled = useFormDisabled(toRef(props, "disabled"));
     const translate = useLocale(cN);
     const classes = computed(() => {
       const prefixCls = "nut-textarea";
       return {
         [prefixCls]: true,
-        [`${prefixCls}--disabled`]: props.disabled
+        [`${prefixCls}--disabled`]: disabled.value
       };
     });
     const styles = computed(() => {
@@ -91,21 +91,22 @@ const _sfc_main = create({
       }
     };
     const _onInput = (event) => {
-      let { value } = event.detail;
+      const input = event.target;
+      let value = input.value;
       if (props.maxLength && value.length > Number(props.maxLength)) {
         value = value.slice(0, Number(props.maxLength));
       }
       emitChange(value, event);
     };
     const focus = (event) => {
-      if (props.disabled)
+      if (disabled.value)
         return;
       if (props.readonly)
         return;
       emit("focus", event);
     };
     const blur = (event) => {
-      if (props.disabled)
+      if (disabled.value)
         return;
       if (props.readonly)
         return;
@@ -217,6 +218,7 @@ const _sfc_main = create({
       textareaRef,
       classes,
       styles,
+      disabled,
       change,
       focus,
       blur,

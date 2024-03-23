@@ -1,8 +1,9 @@
-import { ref, reactive, computed, watch, onMounted, h, resolveComponent, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, createCommentVNode, createTextVNode, createBlock, resolveDynamicComponent, mergeProps, toDisplayString, withDirectives, createVNode, vShow } from "vue";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { MaskClose } from "@nutui/icons-vue-taro";
 import Taro from "@tarojs/taro";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
+import { MaskClose } from "@nutui/icons-vue-taro";
+import { toRef, ref, reactive, computed, watch, onMounted, h, resolveComponent, openBlock, createElementBlock, normalizeClass, createElementVNode, renderSlot, createCommentVNode, createTextVNode, createBlock, resolveDynamicComponent, mergeProps, toDisplayString, withDirectives, createVNode, vShow } from "vue";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { u as useFormDisabled } from "../common-BSbjjJAx.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 function trimExtraChar(value, char, regExp) {
   const index = value.indexOf(char);
   if (index === -1) {
@@ -119,6 +120,7 @@ const _sfc_main = create({
   components: { MaskClose },
   emits: ["update:modelValue", "blur", "focus", "clear", "keypress", "click", "clickInput", "confirm"],
   setup(props, { emit }) {
+    const disabled = useFormDisabled(toRef(props, "disabled"));
     const active = ref(false);
     const inputRef = ref();
     const getModelValue = () => {
@@ -154,7 +156,7 @@ const _sfc_main = create({
       const prefixCls = componentName;
       return {
         [prefixCls]: true,
-        [`${prefixCls}--disabled`]: props.disabled,
+        [`${prefixCls}--disabled`]: disabled.value,
         [`${prefixCls}--required`]: props.required,
         [`${prefixCls}--error`]: props.error,
         [`${prefixCls}--border`]: props.border,
@@ -197,14 +199,14 @@ const _sfc_main = create({
       }
     };
     const onFocus = (event) => {
-      if (props.disabled || props.readonly) {
+      if (disabled.value || props.readonly) {
         return;
       }
       active.value = true;
       emit("focus", event);
     };
     const onBlur = (event) => {
-      if (props.disabled || props.readonly) {
+      if (disabled.value || props.readonly) {
         return;
       }
       setTimeout(() => {
@@ -220,7 +222,7 @@ const _sfc_main = create({
     };
     const clear = (event) => {
       event.stopPropagation();
-      if (props.disabled)
+      if (disabled.value)
         return;
       emit("update:modelValue", "", event);
       emit("clear", "", event);
@@ -232,7 +234,7 @@ const _sfc_main = create({
       }
     };
     const onClickInput = (event) => {
-      if (props.disabled) {
+      if (disabled.value) {
         return;
       }
       emit("clickInput", event);
@@ -280,6 +282,7 @@ const _sfc_main = create({
       active,
       classes,
       styles,
+      disabled,
       onInput,
       onFocus,
       onBlur,
@@ -381,7 +384,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ], 2);
 }
-const index_taro = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+const NutInput = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
 export {
-  index_taro as default
+  NutInput as default
 };

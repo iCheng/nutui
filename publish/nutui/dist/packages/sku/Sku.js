@@ -1,15 +1,10 @@
 import { resolveComponent, openBlock, createElementBlock, createElementVNode, renderSlot, createBlock, createCommentVNode, toDisplayString, ref, watch, onMounted, Fragment, renderList, normalizeClass, createVNode, withCtx, createSlots } from "vue";
-import NutPrice from "../price/Price.js";
-import { c as createComponent } from "../component-TCzwHGVq.js";
-import { u as useLocale } from "../index-s3RgMhc7.js";
-import { _ as _export_sfc } from "../_plugin-vue_export-helper-yVxbj29m.js";
-import { T as TypeOfFun } from "../util-4Jkyw4BJ.js";
-import NutInputNumber from "../inputnumber/InputNumber.js";
-import { N as NutPopup } from "../index-rbZsBckW.js";
-import "@nutui/nutui/dist/packages/locale/lang";
-import "../pxCheck-OnXlN1NC.js";
-import "@nutui/icons-vue";
-import "../overlay/Overlay.js";
+import { Price as _sfc_main$5 } from "../price/Price.js";
+import { c as createComponent } from "../component-DQf3CENX.js";
+import { u as useLocale } from "../index-BRldzYir.js";
+import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
+import { InputNumber as _sfc_main$6 } from "../inputnumber/InputNumber.js";
+import { N as NutPopup } from "../index-uHBD4dfS.js";
 const { create: create$4 } = createComponent("sku-header");
 const cN$1 = "NutSkuHeader";
 const _sfc_main$4 = create$4({
@@ -20,7 +15,7 @@ const _sfc_main$4 = create$4({
     }
   },
   components: {
-    NutPrice
+    NutPrice: _sfc_main$5
   },
   setup(props, { slots }) {
     const translate = useLocale(cN$1);
@@ -149,7 +144,7 @@ const _sfc_main$2 = create$2({
   },
   emits: ["click", "changeSku", "changeStepper", "clickBtnOptions", "overLimit", "reduce", "add"],
   components: {
-    NutInputNumber
+    NutInputNumber: _sfc_main$6
   },
   setup(props, { emit }) {
     const goodsCount = ref(props.stepperMin);
@@ -158,10 +153,11 @@ const _sfc_main$2 = create$2({
     });
     const getExtraText = () => {
       const { stepperExtraText } = props;
-      if (stepperExtraText && TypeOfFun(stepperExtraText) == "function") {
-        return stepperExtraText();
-      } else {
-        return "";
+      if (stepperExtraText) {
+        if (stepperExtraText === true) {
+          return "";
+        }
+        return stepperExtraText == null ? void 0 : stepperExtraText();
       }
     };
     const add = (value) => {
