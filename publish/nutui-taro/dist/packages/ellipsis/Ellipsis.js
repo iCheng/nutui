@@ -88,9 +88,9 @@ const _sfc_main = create({
     let widthRef = ref("auto");
     const state = reactive({
       exceeded: false,
-      //是否超出
+      // 是否超出
       expanded: false
-      //是否折叠
+      // 是否折叠
     });
     let widthBase = [14, 10, 7, 8.4, 10];
     let symbolTextWidth = widthBase[0] * 0.7921;
@@ -148,11 +148,7 @@ const _sfc_main = create({
             if (props.direction === "middle") {
               const end = props.content.length;
               ellipsis.leading = tailorContent(0, rowNum * (Number(props.rows) + 0.5), "end");
-              ellipsis.tailing = tailorContent(
-                props.content.length - rowNum * (Number(props.rows) + 0.5),
-                end,
-                "start"
-              );
+              ellipsis.tailing = tailorContent(props.content.length - rowNum * (Number(props.rows) + 0.5), end, "start");
             } else if (props.direction === "end") {
               const end = rowNum * (Number(props.rows) + 0.5);
               ellipsis.leading = tailorContent(0, end);

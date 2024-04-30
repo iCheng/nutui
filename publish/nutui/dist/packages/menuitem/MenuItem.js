@@ -21,7 +21,7 @@ import { reactive, computed, resolveComponent, withDirectives, openBlock, create
 import { c as createComponent } from "../component-DQf3CENX.js";
 import { N as NutPopup } from "../index-uHBD4dfS.js";
 import { Check } from "@nutui/icons-vue";
-import { u as useParent } from "../useParent-Cm0ckjcv.js";
+import { u as useParent } from "../useParent-D6DiuxZZ.js";
 import { M as MENU_KEY } from "../types-CkPfROfI.js";
 import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("menu-item");
@@ -160,7 +160,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 class: normalizeClass(["nut-menu-item__span", [option.value === _ctx.modelValue ? _ctx.activeTitleClass : _ctx.inactiveTitleClass]])
               }, [
                 renderSlot(_ctx.$slots, "icon", {}, () => [
-                  createVNode(_component_Check, mergeProps(_ctx.$attrs, {
+                  createVNode(_component_Check, mergeProps({ ref_for: true }, _ctx.$attrs, {
                     color: _ctx.parent.props.activeColor
                   }), null, 16, ["color"])
                 ])

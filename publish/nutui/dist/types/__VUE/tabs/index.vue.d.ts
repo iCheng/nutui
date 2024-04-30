@@ -1,5 +1,5 @@
 import { VNode, Ref, CSSProperties, PropType } from 'vue';
-import type { TabsDirection, TabsSize, TabsType, TabsAlign } from './types';
+import { type TabsDirection, type TabsSize, type TabsType, type TabsAlign } from './types';
 export declare class Title {
     title: string;
     titleSlot?: VNode[];
@@ -91,20 +91,20 @@ declare const _default: Install< import("vue").DefineComponent<{
         background: string;
     }>;
     titleStyle: import("vue").ComputedRef<{
-        marginTop?: undefined;
-        marginBottom?: undefined;
-        marginLeft?: undefined;
-        marginRight?: undefined;
+        paddingTop?: undefined;
+        paddingBottom?: undefined;
+        paddingLeft?: undefined;
+        paddingRight?: undefined;
     } | {
-        marginTop: string | undefined;
-        marginBottom: string | undefined;
-        marginLeft?: undefined;
-        marginRight?: undefined;
+        paddingTop: string | undefined;
+        paddingBottom: string | undefined;
+        paddingLeft?: undefined;
+        paddingRight?: undefined;
     } | {
-        marginLeft: string | undefined;
-        marginRight: string | undefined;
-        marginTop?: undefined;
-        marginBottom?: undefined;
+        paddingLeft: string | undefined;
+        paddingRight: string | undefined;
+        paddingTop?: undefined;
+        paddingBottom?: undefined;
     }>;
     tabsActiveStyle: import("vue").ComputedRef<{
         color: string;
