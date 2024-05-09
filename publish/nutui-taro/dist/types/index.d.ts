@@ -52,7 +52,8 @@ import CheckboxGroup from './__VUE/checkboxgroup/index.taro.vue';
 import DatePicker from './__VUE/datepicker/index.taro.vue';
 import InputNumber from './__VUE/inputnumber/index.taro';
 export * from './__VUE/inputnumber/index.taro';
-import Input from './__VUE/input/index.taro.vue';
+import Input from './__VUE/input/index.taro';
+export * from './__VUE/input/index.taro';
 import Radio from './__VUE/radio/index.taro';
 export * from './__VUE/radio/index.taro';
 import RadioGroup from './__VUE/radiogroup/index.taro';
@@ -139,7 +140,7 @@ import Invoice from './__VUE/invoice/index.taro';
 export * from './__VUE/invoice/index.taro';
 import AvatarCropper from './__VUE/avatarcropper/index.taro.vue';
 declare function install(app: App): void;
-declare const version = "4.3.6";
+declare const version = "4.3.7";
 export { install, version, Locale, Button, Cell, CellGroup, Overlay, Popup, ConfigProvider, Layout, Col, Row, Sticky, Divider, Grid, GridItem, Space, Navbar, FixedNav, Menu, MenuItem, Tabbar, TabbarItem, Elevator, Pagination, Tabs, TabPane, Indicator, SideNavbar, SideNavbarItem, SubSideNavbar, Range, Searchbar, Cascader, Calendar, CalendarCard, Checkbox, CheckboxGroup, DatePicker, InputNumber, Input, Radio, RadioGroup, Rate, Picker, ShortPassword, Textarea, Uploader, NumberKeyboard, Form, FormItem, Swipe, SwipeGroup, ActionSheet, Backtop, Drag, Dialog, Notify, Switch, Toast, Avatar, AvatarGroup, List, Progress, CircleProgress, Noticebar, Empty, Steps, Step, Swiper, SwiperItem, Price, ImagePreview, Countup, Countdown, Badge, Tag, Popover, Skeleton, Collapse, CollapseItem, Table, Animate, Ellipsis, Watermark, TrendArrow, Tour, Address, Barrage, Signature, TimeSelect, TimePannel, TimeDetail, Sku, Card, Ecard, AddressList, Category, CategoryPane, Comment, Invoice, AvatarCropper };
 declare const _default: {
     install: typeof install;
