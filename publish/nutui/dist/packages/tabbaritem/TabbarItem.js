@@ -17,12 +17,32 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createVNode, normalizeProps, guardReactiveProps, withCtx, createElementVNode, renderSlot, createCommentVNode, createBlock, resolveDynamicComponent, unref, toDisplayString } from "vue";
-import { r as renderIcon } from "../renderIcon-BfOvhG7i.js";
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, createVNode, unref, normalizeProps, guardReactiveProps, withCtx, createElementVNode, renderSlot, createCommentVNode, createBlock, resolveDynamicComponent, toDisplayString } from "vue";
+import { r as renderIcon } from "../renderIcon-CfE94nuJ.js";
 import { u as useRouter } from "../index-aiGQ-EiA.js";
 import { u as useParent } from "../useParent-D6DiuxZZ.js";
 import { T as TABBAR_KEY } from "../types-MuhxzCWc.js";
-import NutBadge from "../badge/Badge.js";
+import { Badge as _sfc_main$1 } from "../badge/Badge.js";
 import { w as withInstall } from "../with-install-Ch3FF0uS.js";
 const _hoisted_1 = { class: "nut-tabbar-item_icon-box" };
 const _hoisted_2 = {
@@ -51,23 +71,26 @@ const _sfc_main = /* @__PURE__ */ defineComponent(__spreadProps(__spreadValues({
       return ((_a = props.name) != null ? _a : index.value) === parent.activeIndex.value;
     });
     const activeColor = computed(() => active.value ? parent.props.activeColor : parent.props.unactiveColor);
-    const change = () => {
+    const change = () => __async(this, null, function* () {
       var _a, _b, _c;
-      const key = (_a = props.name) != null ? _a : index.value;
-      parent.changeIndex(index.value, key);
-      if ((_b = parent.children[index.value]) == null ? void 0 : _b.href) {
-        window.location.href = parent.children[index.value].href;
-        return;
-      }
-      if ((_c = parent.children[index.value]) == null ? void 0 : _c.to) {
-        const to = parent.children[index.value].to;
-        if (to && router) {
-          router.push(to);
-        } else {
-          location.replace(to);
+      try {
+        const key = (_a = props.name) != null ? _a : index.value;
+        yield parent.changeIndex(index.value, key);
+        if ((_b = parent.children[index.value]) == null ? void 0 : _b.href) {
+          window.location.href = parent.children[index.value].href;
+          return;
         }
+        if ((_c = parent.children[index.value]) == null ? void 0 : _c.to) {
+          const to = parent.children[index.value].to;
+          if (to && router) {
+            router.push(to);
+          } else {
+            location.replace(to);
+          }
+        }
+      } catch (err) {
       }
-    };
+    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         class: normalizeClass(["nut-tabbar-item", { "nut-tabbar-item__icon--unactive": !active.value }]),
@@ -76,7 +99,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent(__spreadProps(__spreadValues({
         }),
         onClick: change
       }, [
-        createVNode(NutBadge, normalizeProps(guardReactiveProps(_ctx.$attrs)), {
+        createVNode(unref(_sfc_main$1), normalizeProps(guardReactiveProps(_ctx.$attrs)), {
           default: withCtx(() => [
             createElementVNode("view", _hoisted_1, [
               _ctx.$slots.icon ? (openBlock(), createElementBlock("div", _hoisted_2, [

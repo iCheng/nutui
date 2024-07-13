@@ -19,7 +19,7 @@ var __spreadValues = (a, b) => {
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { defineComponent, toRef, ref, computed, watch, nextTick, onMounted, openBlock, createElementBlock, normalizeClass, createElementVNode, mergeProps, unref, createTextVNode, toDisplayString, createCommentVNode, normalizeStyle } from "vue";
 import Taro from "@tarojs/taro";
-import { u as useLocale } from "../index-5sMqqUcW.js";
+import { u as useLocale } from "../index-IxPZmHlb.js";
 import { u as useFormDisabled } from "../common-BH7uB7Cn.js";
 import { w as withInstall } from "../with-install-Ch3FF0uS.js";
 const _hoisted_1 = ["rows", "disabled", "value", "maxlength", "placeholder", "auto-focus"];
@@ -102,13 +102,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent(__spreadProps(__spreadValues({
       emitChange(value, event);
     };
     const focus = (event) => {
-      if (disabled.value || props.readonly)
-        return;
+      if (disabled.value || props.readonly) return;
       emit("focus", event);
     };
     const blur = (event) => {
-      if (disabled.value || props.readonly)
-        return;
+      if (disabled.value || props.readonly) return;
       const input = event.target;
       const value = input.value;
       emitChange(value, event);
@@ -221,12 +219,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent(__spreadProps(__spreadValues({
           class: ["nut-textarea__textarea", unref(env) == "ALIPAY" && "nut-textarea__ali"],
           style: styles.value,
           rows: _ctx.rows,
-          disabled: unref(disabled) || _ctx.readonly,
+          disabled: unref(disabled) || _ctx.readonly ? unref(disabled) || _ctx.readonly : void 0,
           value: _ctx.modelValue,
           "show-count": false,
           maxlength: _ctx.maxLength ? _ctx.maxLength : -1,
           placeholder: _ctx.placeholder || unref(translate)("placeholder"),
-          "auto-focus": _ctx.autofocus,
+          "auto-focus": _ctx.autofocus ? true : void 0,
           onInput: change,
           onBlur: blur,
           onFocus: focus,

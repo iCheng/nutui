@@ -39,7 +39,7 @@ declare const _default: Install< import("vue").DefineComponent<{
     };
 }, {
     toggleItem: (active: number) => void;
-    children: any[];
+    children: import("vue").Reactive<any[]>;
     opened: import("vue").ComputedRef<boolean>;
     classes: import("vue").ComputedRef<{
         [x: string]: boolean;
@@ -81,10 +81,10 @@ declare const _default: Install< import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    overlay: boolean;
     duration: string | number;
     lockScroll: boolean;
     closeOnClickOverlay: boolean;
+    overlay: boolean;
     direction: MenuDirection;
     activeColor: string;
     scrollFixed: string | number | boolean;

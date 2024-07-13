@@ -19,9 +19,9 @@ var __spreadValues = (a, b) => {
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 import { toRef, reactive, computed, ref, onMounted, toRefs, openBlock, createElementBlock, normalizeClass, normalizeStyle, renderSlot, createCommentVNode, createTextVNode, createElementVNode, withModifiers, withDirectives, createBlock, resolveDynamicComponent, vShow } from "vue";
 import { c as createComponent } from "../component-DQf3CENX.js";
-import { r as renderIcon } from "../renderIcon-BfOvhG7i.js";
+import { r as renderIcon } from "../renderIcon-CfE94nuJ.js";
 import { CircleClose } from "@nutui/icons-vue-taro";
-import { u as useLocale } from "../index-5sMqqUcW.js";
+import { u as useLocale } from "../index-IxPZmHlb.js";
 import { u as useFormDisabled } from "../common-BH7uB7Cn.js";
 import { _ as _export_sfc } from "../_plugin-vue_export-helper-1tPrXgE0.js";
 const { create } = createComponent("searchbar");
@@ -254,8 +254,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             placeholder: _ctx.placeholder || _ctx.translate("placeholder"),
             value: _ctx.modelValue,
             "confirm-type": _ctx.confirmType,
-            disabled: _ctx.disabled,
-            readonly: _ctx.readonly,
+            disabled: _ctx.disabled ? _ctx.disabled : void 0,
+            readonly: _ctx.readonly ? _ctx.readonly : void 0,
             style: normalizeStyle(_ctx.styleSearchbar),
             "cursor-spacing": _ctx.cursorSpacing,
             onClick: _cache[0] || (_cache[0] = (...args) => _ctx.clickInput && _ctx.clickInput(...args)),
